@@ -4,9 +4,10 @@ import homeLogo from "../../Assets/home-main.svg";
 import Sponsors from "./Sponsors";
 import Button from "react-bootstrap/Button";
 import Timeline from "./Timeline";
-import Contact from "./Contact";
 import Countdown from "../Countdown";
 import Prizes from "./Prizes";
+import Pricing from "./Pricing";
+import Contact from "./Contact";
 
 function Home() {
   return (
@@ -15,39 +16,18 @@ function Home() {
         <Container className="home-content">
           <Row>
             <Col md={7} className="heading">
-              <h1
-                style={{
-                  fontSize: "4rem",
-                  fontWeight: "600",
-                  letterSpacing: "0.1rem",
-                }}
-              >
-                Saral Adda
-              </h1>
-              <h1 style={{ fontSize: "1.1rem", fontWeight: "600" }}>
-                starts 15<sup>th</sup> October 2022,{" "}
-                <span className="purple"> 6PM onwards</span>
-              </h1>
+              <br />
+
               <p className="home-about-body">
-                Welcome Viewer,
-                <br /> We at MLSC DB introduce you to,
-                <b className="purple"> ASTELLAR</b> , a simple yet challenging
-                24-hour cryptic hunt.
                 <br />
+                <p className="down">
+                  Saral Adda
+                  <b className="purple">- get your unique Bhoomi Code now </b>
+                </p>
                 <br />
-                Here your skills will be tested, from core cryptography to
-                general Gen-Z stuff, from hard core Linux to Anime trivia,
-                <b className="purple">
-                  {" "}
-                  anything and everything a geek loves,{" "}
-                </b>
-                we've got you covered.
-                <br />
-                <br />
-                If you're looking for an exciting new puzzle competition with a
-                tech-based twist, look no further than{" "}
-                <b className="purple"> Astellar! </b>Whether you're a seasoned
-                pro or a novice, we'll have you hooked in no time.
+                Location sharing with digital address code. Create your
+                twelve-character address code now from{" "}
+                <b className="purple"> 15 trillion combinations.</b>
               </p>
               <div
                 className="sponsorUS"
@@ -69,7 +49,7 @@ function Home() {
                     background: "none",
                   }}
                 >
-                  Register Your Team
+                  Generate Bhoomi Code
                 </Button>{" "}
               </div>
             </Col>
@@ -91,13 +71,15 @@ function Home() {
               />
             </Col>
           </Row>
-          <Countdown />
         </Container>
+        <Prizes />
       </Container>
-      <Timeline />
-      <Prizes />
-      <Sponsors />
+      <Countdown />
+      <Pricing />
       <Contact />
+      <Timeline />
+
+      <Sponsors />
     </>
   );
 }

@@ -4,18 +4,17 @@ function Footer() {
   let date = new Date();
   let year = date.getFullYear();
   return (
-    
-      <Container fluid className="footer">
-        <Row>
-          <Col md="12" className="footer-copywright">
-            <h3>
-              Copyright © {year}
-              <br />
-              Created with ❤ by Microsoft Learn Student Chapter, Derabassi
-            </h3>
-          </Col>
-        </Row>
-      </Container>
+    <Container fluid className="footer">
+      <Row>
+        <Col md="12" className="footer-copywright">
+          <h3>
+            Copyright © {year}
+            <br />
+            Created with ❤ by Moisture Bois
+          </h3>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 

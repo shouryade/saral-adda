@@ -6,20 +6,20 @@ const Timer = (props) => {
   return (
     <Container className="timer-container">
       <div className="timecard">
-        {props.days}
-        <p>Days</p>
+        PB
+        <p>State</p>
       </div>
       <div className="timecard">
-        {props.hours}
-        <p>Hours</p>
+        H67C
+        <p>11×11 KM Area</p>
       </div>
       <div className="timecard">
-        {props.minutes}
-        <p>Minutes</p>
+        JXF9
+        <p>100×100 M Area</p>
       </div>
       <div className="timecard">
-        {props.seconds}
-        <p>Seconds</p>
+        X25
+        <p>Exact Location</p>
       </div>
     </Container>
   );

@@ -1,7 +1,7 @@
 import React from "react";
-import { Container, Row,Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import ContactHandler from "./ContactHandler";
-import { FaGithub,FaDiscord,FaInstagram } from "react-icons/fa";
+import { FaGithub, FaDiscord, FaInstagram } from "react-icons/fa";
 
 const contactDetails = [
   {
@@ -28,9 +28,6 @@ const contactDetails = [
     insta: "_srishti_0210",
     img: require("../../Assets/organizers/srishti.jpg"),
   },
-  
-  
-  
 ];
 
 const Contact = () => {
@@ -48,12 +45,34 @@ const Contact = () => {
           <span className="purple"> CONTACT</span>
         </h1>
         <Row>
-          <p style={{ color: "white", fontSize: "1.2rem" ,paddingBottom:"1.5rem"}}>
-          <b className="purple">Astellar</b> is being organized by <b className="purple">Microsoft Learn Student Chapter, Derabassi. </b>
-          <br/>
-          <br/>
-          The fastest way to reach us is by contacting any of the following admins on their <b className="purple">Instagram DMs</b>. You can also <a href="https://www.instagram.com/mlsc_db/" target="_blank" rel="noopener noreferrer" style={{color:"#be50f4",fontWeight:"bold",textDecoration:"none"}}>follow us on Instagram</a>
-
+          <p
+            style={{
+              color: "white",
+              fontSize: "1.2rem",
+              paddingBottom: "1.5rem",
+            }}
+          >
+            <b className="purple">Astellar</b> is being organized by{" "}
+            <b className="purple">
+              Microsoft Learn Student Chapter, Derabassi.{" "}
+            </b>
+            <br />
+            <br />
+            The fastest way to reach us is by contacting any of the following
+            admins on their <b className="purple">Instagram DMs</b>. You can
+            also{" "}
+            <a
+              href="https://www.instagram.com/mlsc_db/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: "#1B4279",
+                fontWeight: "bold",
+                textDecoration: "none",
+              }}
+            >
+              follow us on Instagram
+            </a>
           </p>
           <div className="contact-container">
             {contactDetails.map((data, idx) => (
@@ -63,11 +82,16 @@ const Contact = () => {
         </Row>
         <Row>
           <Col md={12} className="home-about-social">
-            <h1 style={{
-            fontSize: "2.5rem",
-            fontWeight: "600",
-            letterSpacing: "0.5rem",
-            paddingBottom: "1rem"}}>CONNECT WITH US</h1>
+            <h1
+              style={{
+                fontSize: "2.5rem",
+                fontWeight: "600",
+                letterSpacing: "0.5rem",
+                paddingBottom: "1rem",
+              }}
+            >
+              CONNECT WITH US
+            </h1>
             <ul className="home-about-social-links">
               <li className="social-icons">
                 <a

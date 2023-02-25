@@ -4,6 +4,8 @@ import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import { Link } from "react-router-dom";
 import "../App.css";
+import MyLogo from "../Assets/saral-adda.png";
+
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
@@ -27,8 +29,12 @@ function NavBar() {
     >
       <Container>
         <Navbar.Brand href="/" className="d-flex">
-          {/* <img src={logo} className="img-fluid logo" alt="brand" /> */}
-          <h3>Astellar</h3>
+          <img
+            src={MyLogo}
+            className="img-fluid"
+            style={{ width: "69%" }}
+            alt="brand"
+          />
         </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
@@ -51,7 +57,7 @@ function NavBar() {
             <Nav.Item>
               <Nav.Link
                 as={Link}
-                to="/about"
+                to="#about"
                 onClick={() => updateExpanded(false)}
               >
                 About
@@ -87,16 +93,6 @@ function NavBar() {
                 Register
               </Nav.Link>
             </Nav.Item>
-
-            {/* <Nav.Item>
-              <Nav.Link
-                href="https://blogs.soumya-jit.tech/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <ImBlog style={{ marginBottom: "2px" }} /> Blogs
-              </Nav.Link>
-            </Nav.Item> */}
           </Nav>
         </Navbar.Collapse>
       </Container>

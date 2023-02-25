@@ -8,8 +8,6 @@ import Particle from "./components/Particle";
 import Image from "./Image";
 import Register from "./components/auth/Register";
 
-import TitleSpons from "./components/TitleSpons";
-
 import {
   BrowserRouter as Router,
   Route,
@@ -43,7 +41,7 @@ function App() {
         <ScrollToTop />
         <Particle />
         <Image />
-        <TitleSpons />
+
         <Routes>
           <Route path="/" element={<Home />} />
 
