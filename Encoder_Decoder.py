@@ -10,8 +10,8 @@ def is_valid(lat,long):
         return False
     
 def is_valid_text(encoded):
-    encoded=encoded.replace(' ','').split('+')
-    word=encoded[0]+encoded[1]
+    encoded=encoded.replace(' ','').split('$')
+    word=encoded[1]+encoded[2]
     for i in word:
         if i not in '23456789CFGHJMPQRVWX':
             return False
@@ -73,10 +73,10 @@ def encoder(lat,long,restrict_loc,floor=0,):
 def decoder(encoded_word):
     if is_valid_text(encoded_word):
         dec=encoded_word.replace(' ','').split('$') 
-        gridnumber=index(dec[1][0])
-        latitude=index(dec[0][0])*2+8+index(dec[0][2])/10+index(dec[0][4])/200+index(dec[0][6])/4000+((gridnumber//5)/16000)
-        longitude=index(dec[0][1])*2+68+index(dec[0][3])/10+(index(dec[0][5])/200)+(index(dec[0][7])/4000)+((gridnumber%5)/20000)    
-        floor=to_base10(dec[1][1:])
+        gridnumber=index(dec[2][0])
+        latitude=index(dec[1][0])*2+8+index(dec[1][2])/10+index(dec[1][4])/200+index(dec[1][6])/4000+((gridnumber//5)/16000)
+        longitude=index(dec[1][1])*2+68+index(dec[1][3])/10+(index(dec[1][5])/200)+(index(dec[1][7])/4000)+((gridnumber%5)/20000)    
+        floor=to_base10(dec[2][1:])
         return(latitude,longitude,floor)
     return False
 
@@ -118,8 +118,9 @@ rto_codes = {
 }
 rto_codes_reversed = {value: key for key, value in rto_codes.items()}
 import geocoder
+
 def written_format(lat,long,restrict_loc=[],floor=0,):
     location = geocoder.osm([lat, long], method='reverse')
     state = location.state
-    state = rto_codes_reversed[state] + ' ' + encoder(lat,long,restrict_loc,floor)
+    state = rto_codes_reversed[state] + ' $ ' + encoder(lat,long,restrict_loc,floor)
     return state
