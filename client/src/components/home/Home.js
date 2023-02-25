@@ -22,16 +22,17 @@ function Home() {
                   letterSpacing: "0.1rem",
                 }}
               >
-                Astellar
+                Saral Adda
               </h1>
               <h1 style={{ fontSize: "1.1rem", fontWeight: "600" }}>
-               starts 15<sup>th</sup> October 2022, <span className="purple"> 6PM onwards</span>
+                starts 15<sup>th</sup> October 2022,{" "}
+                <span className="purple"> 6PM onwards</span>
               </h1>
               <p className="home-about-body">
-                Welcome Player,
+                Welcome Viewer,
                 <br /> We at MLSC DB introduce you to,
-                <b className="purple"> ASTELLAR</b> , a simple yet challenging 24-hour
-                cryptic hunt.
+                <b className="purple"> ASTELLAR</b> , a simple yet challenging
+                24-hour cryptic hunt.
                 <br />
                 <br />
                 Here your skills will be tested, from core cryptography to
@@ -48,19 +49,24 @@ function Home() {
                 <b className="purple"> Astellar! </b>Whether you're a seasoned
                 pro or a novice, we'll have you hooked in no time.
               </p>
-              <div className="sponsorUS" style={{justifyContent:"left",display:"flex",justifySelf:"center"}}>
+              <div
+                className="sponsorUS"
+                style={{
+                  justifyContent: "left",
+                  display: "flex",
+                  justifySelf: "center",
+                }}
+              >
                 <Button
                   variant="outline-light"
                   href="/register"
                   target="_blank"
                   type="submit"
-
                   style={{
                     fontSize: "1.5rem",
                     width: "90%",
                     height: "auto",
                     background: "none",
-                    
                   }}
                 >
                   Register Your Team
