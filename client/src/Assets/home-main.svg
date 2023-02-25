@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400" height="400" viewBox="-1.7 -1.7 3.5 3.5">
+  <g fill="hsla(0, 100%, 25%, 0)" stroke="hsla(300,100%,25%,1)" stroke-width="0.01">
+    <circle r="1" />
+
+    <g id="grid">
+      <path d="M0 1A1 1 0 1 1 0-1">
+        <animateTransform attributeName="transform" type="scale" dur="10s" values="1 1; -1 1" repeatCount="indefinite" calcMode="spline" keySplines="0.64 0 0.36 1" />
+      </path>
+      <path d="M0 1A1 1 0 0 1 0-1">
+        <animateTransform attributeName="transform" type="scale" begin="-0.5s" dur="10s" values="1 1; -1 1" repeatCount="indefinite" calcMode="spline" keySplines="0.64 0 0.36 1" />
+      </path>
+      <path d="M0 1A1 1 0 0 1 0-1">
+        <animateTransform attributeName="transform" type="scale" begin="-1.0s" dur="10s" values="1 1; -1 1" repeatCount="indefinite" calcMode="spline" keySplines="0.64 0 0.36 1" />
+      </path>
+      <path d="M0 1A1 1 0 0 1 0-1">
+        <animateTransform attributeName="transform" type="scale" begin="-1.5s" dur="10s" values="1 1; -1 1" repeatCount="indefinite" calcMode="spline" keySplines="0.64 0 0.36 1" />
+      </path>
+      <path d="M0 1A1 1 0 0 1 0-1">
+        <animateTransform attributeName="transform" type="scale" begin="-2.0s" dur="10s" values="1 1; -1 1" repeatCount="indefinite" calcMode="spline" keySplines="0.64 0 0.36 1" />
+      </path>
+      <path d="M0 1A1 1 0 0 1 0-1">
+        <animateTransform attributeName="transform" type="scale" begin="-2.5s" dur="10s" values="1 1; -1 1" repeatCount="indefinite" calcMode="spline" keySplines="0.64 0 0.36 1" />
+      </path>
+      <path d="M0 1A1 1 0 0 1 0-1">
+        <animateTransform attributeName="transform" type="scale" begin="-3.0s" dur="10s" values="1 1; -1 1" repeatCount="indefinite" calcMode="spline" keySplines="0.64 0 0.36 1" />
+      </path>
+      <path d="M0 1A1 1 0 0 1 0-1">
+        <animateTransform attributeName="transform" type="scale" begin="-3.5s" dur="10s" values="1 1; -1 1" repeatCount="indefinite" calcMode="spline" keySplines="0.64 0 0.36 1" />
+      </path>
+      <path d="M0 1A1 1 0 0 1 0-1">
+        <animateTransform attributeName="transform" type="scale" begin="-4.0s" dur="10s" values="1 1; -1 1" repeatCount="indefinite" calcMode="spline" keySplines="0.64 0 0.36 1" />
+      </path>
+      <path d="M0 1A1 1 0 0 1 0-1">
+        <animateTransform attributeName="transform" type="scale" begin="-4.5s" dur="10s" values="1 1; -1 1" repeatCount="indefinite" calcMode="spline" keySplines="0.64 0 0.36 1" />
+      </path>
+      <path d="M0 1A1 1 0 0 1 0-1">
+        <animateTransform attributeName="transform" type="scale" begin="-5.0s" dur="10s" values="1 1; -1 1" repeatCount="indefinite" calcMode="spline" keySplines="0.64 0 0.36 1" />
+      </path>
+      <path d="M0 1A1 1 0 0 1 0-1">
+        <animateTransform attributeName="transform" type="scale" begin="-5.5s" dur="10s" values="1 1; -1 1" repeatCount="indefinite" calcMode="spline" keySplines="0.64 0 0.36 1" />
+      </path>
+      <path d="M0 1A1 1 0 0 1 0-1">
+        <animateTransform attributeName="transform" type="scale" begin="-6.0s" dur="10s" values="1 1; -1 1" repeatCount="indefinite" calcMode="spline" keySplines="0.64 0 0.36 1" />
+      </path>
+      <path d="M0 1A1 1 0 0 1 0-1">
+        <animateTransform attributeName="transform" type="scale" begin="-6.5s" dur="10s" values="1 1; -1 1" repeatCount="indefinite" calcMode="spline" keySplines="0.64 0 0.36 1" />
+      </path>
+      <path d="M0 1A1 1 0 0 1 0-1">
+        <animateTransform attributeName="transform" type="scale" begin="-7.0s" dur="10s" values="1 1; -1 1" repeatCount="indefinite" calcMode="spline" keySplines="0.64 0 0.36 1" />
+      </path>
+      <path d="M0 1A1 1 0 0 1 0-1">
+        <animateTransform attributeName="transform" type="scale" begin="-7.5s" dur="10s" values="1 1; -1 1" repeatCount="indefinite" calcMode="spline" keySplines="0.64 0 0.36 1" />
+      </path>
+      <path d="M0 1A1 1 0 0 1 0-1">
+        <animateTransform attributeName="transform" type="scale" begin="-8.0s" dur="10s" values="1 1; -1 1" repeatCount="indefinite" calcMode="spline" keySplines="0.64 0 0.36 1" />
+      </path>
+      <path d="M0 1A1 1 0 0 1 0-1">
+        <animateTransform attributeName="transform" type="scale" begin="-8.5s" dur="10s" values="1 1; -1 1" repeatCount="indefinite" calcMode="spline" keySplines="0.64 0 0.36 1" />
+      </path>
+      <path d="M0 1A1 1 0 0 1 0-1">
+        <animateTransform attributeName="transform" type="scale" begin="-9.0s" dur="10s" values="1 1; -1 1" repeatCount="indefinite" calcMode="spline" keySplines="0.64 0 0.36 1" />
+      </path>
+      <path d="M0 1A1 1 0 0 1 0-1">
+        <animateTransform attributeName="transform" type="scale" begin="-9.5s" dur="10s" values="1 1; -1 1" repeatCount="indefinite" calcMode="spline" keySplines="0.64 0 0.36 1" />
+      </path>
+      <path d="M0 1A1 1 0 0 1 0-1">
+        <animateTransform attributeName="transform" type="scale" begin="-10.0s" dur="10s" values="1 1; -1 1" repeatCount="indefinite" calcMode="spline" keySplines="0.64 0 0.36 1" />
+      </path>
+
+      
+      
+      <path d="M1 0 A0.7 1.5 45 0 1 -1 0" stroke="hsl(0,0%,100%)" stroke-width="0.005">
+        <animateTransform attributeName="transform" type="scale" begin="-10s" dur="7.0s" values="1 1; -1 1" repeatCount="indefinite" calcMode="spline" keySplines="0.64 0 0.36 1" />
+      </path>
+      <path d="M1 0 A0.7 1.5 45 1 0 -1 0" stroke="hsl(0,0%,100%)" stroke-width="0.005">
+        <animateTransform attributeName="transform" type="scale" begin="-10s" dur="7.0s" values="1 1; -1 1" repeatCount="indefinite" calcMode="spline" keySplines="0.64 0 0.36 1" />
+      </path>
+      
+    </g>
+    <use xlink:href="#grid" transform="rotate(90)" />
+  </g>
+</svg>

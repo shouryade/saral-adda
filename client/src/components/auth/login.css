@@ -1,0 +1,87 @@
+.form-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+    background-color: rgba(255, 255, 255, .05);
+    border-radius: 16px;
+    backdrop-filter: blur(5px);
+    z-index: 10;
+    width: 70% !important;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    height: 100%;
+
+}
+
+.form-content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 2rem 0 1rem !important;
+    color: whitesmoke;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+
+}
+
+
+.form-Item {
+    flex-direction: column;
+    display: flex;
+}
+
+
+.form-Item span.sw {
+    flex: 0 0 100%;
+    font-size: 0.9rem;
+    text-align: center;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.form-Item label{
+    padding: 1rem;
+}
+.form-Item span.error {
+    padding-top: 0.5rem;
+    padding-bottom: 2rem;
+    font-size: 0.8rem;
+    text-align: center;
+    display: none;
+}
+
+.form-Item input:invalid[focused="true"]~span.error {
+    display: block;
+}
+
+
+.form-Item input,
+.form-Item input:focus {
+    font-size: 1.1rem;
+    background: none;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .25);
+    padding: 1.4rem 0 1.4rem 1rem;
+    border-radius: 10px;
+    color: white;
+}
+
+
+@media (max-width: 767px) {
+    .form-gallery {
+        width: 100% !important;
+    }
+
+    .form-content {
+        width: 100%;
+    }
+
+    .form-Item {
+        width: 100%;
+        padding: 0 1rem 0 1rem;
+        font-size: 1.1rem;
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "short_name": "Astellar",
+  "name": "Astellar 2022",
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/shouryade/astellar-reg-form/main/static/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "therealmanifest":"-36.848461,174.763336 /file/Y9EA0KrZ ciphertext(gronsfeld):WNYIQQZJOGPWFDQGUV"
+}
