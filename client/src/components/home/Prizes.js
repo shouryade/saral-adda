@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row } from "react-bootstrap";
-
+import Countdown from "../Countdown";
 function Prizes() {
   return (
     <>
@@ -16,6 +16,7 @@ function Prizes() {
           >
             <span className="purple"> WHAT IS A BHOOMI CODE? </span>
           </h1>
+          <Countdown />
           <Row>
             <div className="title-sponsor">
               <h1

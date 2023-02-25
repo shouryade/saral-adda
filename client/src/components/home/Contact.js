@@ -1,34 +1,7 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import ContactHandler from "./ContactHandler";
-import { FaGithub, FaDiscord, FaInstagram } from "react-icons/fa";
+import { Container, Row, Col, Carousel } from "react-bootstrap";
 
-const contactDetails = [
-  {
-    name: "Shourya De",
-    post: "Technical Head",
-    email: "sde_be21@thapar.edu",
-    number: "+91 9084022584",
-    insta: "shourya.yay",
-    img: require("../../Assets/organizers/shourya.jpg"),
-  },
-  {
-    name: "Rochak Ranjan",
-    post: "General Secretary",
-    email: "rranjan_be21@thapar.edu",
-    number: "+91 9910709476",
-    insta: "tempestrochak",
-    img: require("../../Assets/organizers/rauchak.jpg"),
-  },
-  {
-    name: "Srishti Jethi",
-    post: "Marketing and Management Head",
-    email: "sjethi_be21@thapar.edu",
-    number: "+91 995862565",
-    insta: "_srishti_0210",
-    img: require("../../Assets/organizers/srishti.jpg"),
-  },
-];
+import { FaGithub, FaDiscord, FaInstagram } from "react-icons/fa";
 
 const Contact = () => {
   return (
@@ -42,42 +15,78 @@ const Contact = () => {
             paddingBottom: "3rem",
           }}
         >
-          <span className="purple"> CONTACT</span>
+          <span className="purple">IMPACT ON INDUSTRY</span>
         </h1>
         <Row>
-          <p
-            style={{
-              color: "white",
-              fontSize: "1.2rem",
-              paddingBottom: "1.5rem",
-            }}
-          >
-            <b className="purple">Astellar</b> is being organized by{" "}
-            <b className="purple">
-              Microsoft Learn Student Chapter, Derabassi.{" "}
-            </b>
-            <br />
-            <br />
-            The fastest way to reach us is by contacting any of the following
-            admins on their <b className="purple">Instagram DMs</b>. You can
-            also{" "}
-            <a
-              href="https://www.instagram.com/mlsc_db/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                color: "#1B4279",
-                fontWeight: "bold",
-                textDecoration: "none",
-              }}
-            >
-              follow us on Instagram
-            </a>
-          </p>
           <div className="contact-container">
-            {contactDetails.map((data, idx) => (
-              <ContactHandler data={data} key={idx} />
-            ))}
+            <Carousel>
+              <Carousel.Item interval={1000}>
+                <img
+                  className="d-block w-100"
+                  src="https://images.unsplash.com/photo-1599408444232-8947844d94e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1070&q=80"
+                  width={69}
+                  height={500}
+                  alt="First slide"
+                />
+                <Carousel.Caption>
+                  <div className="stake">
+                    {" "}
+                    <h3>Consumers</h3>
+                    <p>
+                      Share your BhoomiCode with your friends and social media
+                      if they want an easy way to see and get directions to your
+                      address.
+                    </p>
+                  </div>
+                </Carousel.Caption>
+              </Carousel.Item>
+              <Carousel.Item interval={1500}>
+                <img
+                  className="d-block w-100"
+                  src="https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                  width={69}
+                  height={500}
+                  alt="Second slide"
+                />
+                <Carousel.Caption>
+                  <div className="stake">
+                    <h3>Businesses</h3>
+                    <p>
+                      Any last mile delivery, logistics & supply chain
+                      challenges can be solved with BhoomiCode , e-commerce will
+                      get heavily impacted as it will make the checkout system
+                      much more fast and robust. Moreover, BhoomiCode will help
+                      make drone delivery system a reality in India, a universal
+                      address system will help deliver supplies even in the
+                      remote areas. Taxi aggregators will be heavily impacted as
+                      it will help in last mile connectivity.
+                    </p>
+                  </div>
+                </Carousel.Caption>
+              </Carousel.Item>
+              <Carousel.Item interval={1500}>
+                <img
+                  className="d-block w-100"
+                  src="https://images.unsplash.com/photo-1532375810709-75b1da00537c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80"
+                  width={69}
+                  height={500}
+                  alt="Third slide"
+                />
+                <Carousel.Caption>
+                  <div className="stake">
+                    <h3>Government</h3>
+                    <p>
+                      BhoomiCode can be used for rapid emergency response down
+                      to the doorstep, which will eventually help our defence
+                      forces too. Taxation on property and water can be done
+                      more robustly using the code and further it will
+                      revolutionize the census process. It will further bring a
+                      revolution to postal services making it easier and robust.
+                    </p>
+                  </div>
+                </Carousel.Caption>
+              </Carousel.Item>
+            </Carousel>
           </div>
         </Row>
         <Row>

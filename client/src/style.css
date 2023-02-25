@@ -812,8 +812,28 @@ body {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-
+  padding: 0 10rem 0 10rem;
   border-radius: 10px;
+  backdrop-filter: blur(5px);
+  justify-content: space-evenly;
+}
+
+.contact-container .d-block-w100 {
+
+  width: 20%;
+}
+
+.contact-container .stake {
+  font-size: 0;
+}
+
+.contact-container:hover .stake {
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 1rem;
+  box-shadow: 0 0 1rem 0 #1b1a2ea9;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, .1);
   backdrop-filter: blur(5px);
   justify-content: space-evenly;
 }
@@ -834,7 +854,6 @@ body {
 
 
 .org img {
-
   height: 150px;
   width: 150px;
   border-radius: 10px;
@@ -856,9 +875,10 @@ body {
   grid-template-columns: repeat(4, minmax(0px, 1fr));
   gap: 0px 2rem;
   width: 80%;
-  margin: 1rem 1rem;
+  margin: 1rem 1rem 4rem 1rem;
   padding-left: 20%;
   padding-right: 0%;
+
   z-index: 10;
 
 }

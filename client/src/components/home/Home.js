@@ -1,10 +1,9 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import homeLogo from "../../Assets/home-main.svg";
-import Sponsors from "./Sponsors";
+
 import Button from "react-bootstrap/Button";
-import Timeline from "./Timeline";
-import Countdown from "../Countdown";
+
 import Prizes from "./Prizes";
 import Pricing from "./Pricing";
 import Contact from "./Contact";
@@ -22,7 +21,7 @@ function Home() {
                 <br />
                 <p className="down">
                   Saral Adda
-                  <b className="purple">- get your unique Bhoomi Code now </b>
+                  <b className="purple"> - get your unique Bhoomi Code now </b>
                 </p>
                 <br />
                 Location sharing with digital address code. Create your
@@ -72,14 +71,18 @@ function Home() {
             </Col>
           </Row>
         </Container>
+
         <Prizes />
       </Container>
-      <Countdown />
       <Pricing />
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
       <Contact />
-      <Timeline />
+      {/* <Timeline /> */}
 
-      <Sponsors />
+      {/* <Sponsors /> */}
     </>
   );
 }
