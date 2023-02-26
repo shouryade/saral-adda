@@ -67,7 +67,7 @@ function NavBar() {
             <Nav.Item>
               <Nav.Link
                 as={Link}
-                to="/login"
+                to="/portal"
                 onClick={() => updateExpanded(false)}
               >
                 Map Portal

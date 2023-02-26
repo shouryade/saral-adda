@@ -80,9 +80,6 @@ function Home() {
       <br></br>
       <br></br>
       <Contact />
-      {/* <Timeline /> */}
-
-      {/* <Sponsors /> */}
     </>
   );
 }

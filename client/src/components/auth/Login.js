@@ -1,14 +1,20 @@
-import React, { useState } from "react";
-import { Button, Container, Row } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Button, Container, Row, Modal } from "react-bootstrap";
 import "./login.css";
 import FormInput from "./FormInput";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom";
+
+import { Map, Marker, ZoomControl } from "pigeon-maps";
 
 export default function Login() {
-  const navigate = useNavigate();
+  const [mapValue, setMapValue] = useState(false);
+  const [mapCoords, setMapCoords] = useState({
+    lat: 0,
+    long: 0,
+  });
+  const [lgShow, setLgShow] = useState(false);
   const [values, setValues] = useState({
     teamname: "",
     password: "",
@@ -26,29 +32,35 @@ export default function Login() {
       label: "Enter Bhumi Code",
     },
   ];
-  const handleSubmit = (e) => {
-    e.preventDefault();
 
-    const data = new FormData(e.target);
-    const payload = JSON.stringify(Object.fromEntries(data.entries()));
-    const myObj = JSON.parse(payload);
+  useEffect(() => {
+    if (lgShow) {
+      const fetchData = async () => {
+        try {
+          const data = new FormData(document.getElementById("my-form"));
+          const payload = JSON.stringify(Object.fromEntries(data.entries()));
+          const myObj = JSON.parse(payload);
 
-    axios
-      .post("http://localhost:1339/api/generate/location", {
-        bhumicode: myObj.bhumicode,
-      })
-      .then((result) => {
-        var res = result.data.res;
-        console.log(res);
+          const result = await axios.post(
+            "http://localhost:1339/api/generate/location",
+            { bhumicode: myObj.bhumicode }
+          );
 
-        toast.success(
-          "Latitude -> " +
-            res[0] +
-            " Longitude -> " +
-            res[1] +
-            " The Building Floor is -> " +
-            res[2],
-          {
+          var res = result.data.res;
+          console.log(res);
+          setMapValue(true);
+          setMapCoords({
+            lat: Number(res[0]),
+            long: Number(res[1]),
+          });
+        } catch (err) {
+          var msg = "";
+          if (typeof err.response == "undefined") {
+            msg = "Server error, please try again!";
+          } else {
+            msg = err.response.data.detail;
+          }
+          toast.error(msg, {
             position: "top-center",
             autoClose: 5000,
             hideProgressBar: false,
@@ -56,26 +68,16 @@ export default function Login() {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-          }
-        );
-      })
-      .catch((err) => {
-        var msg = "";
-        if (typeof err.response == "undefined") {
-          msg = "Server error, please try again!";
-        } else {
-          msg = err.response.data.detail;
+          });
         }
-        toast.error(msg, {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-      });
+      };
+      fetchData();
+    }
+  }, [lgShow]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLgShow(true);
   };
 
   const onChange = (e) => {
@@ -95,11 +97,15 @@ export default function Login() {
               paddingTop: "7rem",
             }}
           >
-            <span className="purple"> BhumiCode to Location </span>
+            <span className="purple"> Bhumi Code to Location </span>
           </h1>
           <Row>
             <div className="form-gallery">
-              <form onSubmit={handleSubmit} className="form-content">
+              <form
+                id="my-form"
+                onSubmit={handleSubmit}
+                className="form-content"
+              >
                 {inputs.map((input) => (
                   <FormInput
                     key={input.id}
@@ -117,10 +123,6 @@ export default function Login() {
       }    
     `}
                 </style>
-                <div
-                  className="g-recaptcha"
-                  data-sitekey="6Ld2Cf0fAAAAAGUlXmCKZBT8j6cG0Dk5kb7qzriZ"
-                ></div>
                 <Button
                   variant="outline-light"
                   type="submit"
@@ -136,9 +138,34 @@ export default function Login() {
                     align: "center",
                   }}
                 >
-                  Login !
+                  Show me my Location!
                 </Button>{" "}
               </form>
+              <Modal
+                size="lg"
+                show={lgShow}
+                onHide={() => setLgShow(false)}
+                aria-labelledby="example-modal-sizes-title-lg"
+              >
+                <Modal.Header closeButton>
+                  <Modal.Title id="example-modal-sizes-title-lg">
+                    Bhumi Code to Location
+                  </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <Map
+                    height={300}
+                    defaultCenter={[mapCoords.lat, mapCoords.long]}
+                    defaultZoom={13}
+                  >
+                    <Marker
+                      width={50}
+                      anchor={[mapCoords.lat, mapCoords.long]}
+                    />
+                    <ZoomControl />
+                  </Map>
+                </Modal.Body>
+              </Modal>
             </div>
           </Row>
         </Container>

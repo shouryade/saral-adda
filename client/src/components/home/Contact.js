@@ -95,7 +95,7 @@ const Contact = () => {
             </Carousel>
           </div>
         </Row>
-        <Row>
+        {/* <Row>
           <Col md={12} className="home-about-social">
             <h1
               style={{
@@ -140,7 +140,7 @@ const Contact = () => {
               </li>
             </ul>
           </Col>
-        </Row>
+        </Row> */}
       </Container>
     </Container>
   );
