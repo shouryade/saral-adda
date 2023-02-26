@@ -69,31 +69,8 @@ async def createBhumiCode(request: Location):
 @app.post("/api/generate/location")
 async def createLocation(request: Bhumicode):
     input_word = request.bhumicode
-    print(input_word)
     obj = decoder(input_word)
     return {"res": obj}
-
-    # try:
-    #     floor = int(request.floor)
-    # except:
-    #     floor = 0
-
-    # try:
-    #     lat = float(request.lat)
-    #     long = float(request.long)
-
-    #     if lat < 38 and lat >= 8 and long < 98 and long >= 68:
-    #         obj = encoder(lat, long, restrict_loc=restricted, floor=floor)
-    #         return {"res": obj}
-    #     else:
-    #         return False
-
-    # except Exception as e:
-    #     print(e)
-    #     raise HTTPException(
-    #         status_code=status.HTTP_403_FORBIDDEN,
-    #         detail="Please enter valid latitude,logitude and floor values",
-    #     )
 
 
 if __name__ == "__main__":
