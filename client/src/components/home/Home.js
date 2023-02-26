@@ -38,7 +38,7 @@ function Home() {
               >
                 <Button
                   variant="outline-light"
-                  href="/register"
+                  href="/generate"
                   target="_blank"
                   type="submit"
                   style={{

@@ -4,6 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+fastapi = {extras = ["all"], version = "*"}
+bleach = "*"
+python-dotenv = "*"
 
 [dev-packages]
 black = "*"

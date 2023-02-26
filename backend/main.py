@@ -2,15 +2,12 @@ from typing import Optional
 from fastapi import FastAPI, HTTPException, Depends, Request, status
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
-from hashing import Hash
-from jwttoken import create_access_token
-from oauth import get_current_user
-from fastapi.security import OAuth2PasswordRequestForm
+
+
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
-import os
 from dotenv import load_dotenv
-from pymongo import MongoClient
+
 from geocodehashing import encoder
 
 
@@ -31,88 +28,38 @@ app.add_middleware(
 )
 
 
-class User(BaseModel):
-    username: str
-    company: str
-    password: str
-
-
 class Location(BaseModel):
     lat: str
     long: str
     floor: str
 
 
-class Login(BaseModel):
-    username: str
-    password: str
-
-
-class Token(BaseModel):
-    access_token: str
-    token_type: str
-
-
-class TokenData(BaseModel):
-    username: Optional[str] = None
-
-
-@app.get("/")
-# def read_root(current_user: User = Depends(get_current_user)):
-async def read_root():
-    return {"data": "Hello OWrld"}
-
-
 restricted = []
 
 
-@app.post("/api/user/signup")
-def createBhumiCode(request: Location):
+@app.post("/api/generate/bhumicode")
+async def createBhumiCode(request: Location):
+    try:
+        floor = int(request.floor)
+    except:
+        floor = 0
+
     try:
         lat = float(request.lat)
         long = float(request.long)
 
+        if lat < 38 and lat >= 8 and long < 98 and long >= 68:
+            obj = encoder(lat, long, restrict_loc=restricted, floor=floor)
+            return {"res": obj}
+        else:
+            return False
+
     except Exception as e:
+        print(e)
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="Please enter valid latitude and logitude values",
+            detail="Please enter valid latitude,logitude and floor values",
         )
-
-
-@app.post("/api/user/signupzzzz")
-def create_user(request: Location):
-    if bool((part_form.find_one({"username": request.username}))):
-        raise HTTPException(
-            status_code=status.HTTP_403_FORBIDDEN,
-            detail="This user already exists!",
-        )
-    else:
-        hashed_pass = Hash.bcrypt(request.password)
-        request.password = hashed_pass
-        _id = part_form.insert_one(request.dict())
-
-        print(_id.inserted_id)
-
-        return {"res": "created", "id": str(_id.inserted_id)}
-
-
-@app.post("/api/user/signin")
-def login(request: Login):
-    user = part_form.find_one({"username": request.username})
-    print(user)
-    if not user:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"No user found with the username {request.username} ",
-        )
-
-    if not Hash.verify(user["password"], request.password):
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND, detail=f"Wrong Username or password"
-        )
-    access_token = create_access_token(data={"sub": user["username"]})
-
-    return {"access_token": access_token, "token_type": "bearer"}
 
 
 if __name__ == "__main__":

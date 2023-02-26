@@ -57,10 +57,10 @@ function NavBar() {
             <Nav.Item>
               <Nav.Link
                 as={Link}
-                to="#about"
+                to="/generate"
                 onClick={() => updateExpanded(false)}
               >
-                About
+                Generate
               </Nav.Link>
             </Nav.Item>
 

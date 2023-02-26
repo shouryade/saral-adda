@@ -20,7 +20,7 @@ export default function Register() {
       type: "text",
       required: true,
       autocomplete: "off",
-      // pattern: "^[A-Za-z0-9]{3,50}$",
+
       errorMessage: "Please enter your longitude",
       placeholder: "30.562477",
       label: "Enter your latitude",
@@ -31,7 +31,7 @@ export default function Register() {
       type: "text",
       required: true,
       autocomplete: "off",
-      // pattern: "^[A-Za-z0-9]{3,50}$",
+
       errorMessage: "Please enter your longitude",
       placeholder: "76.896965",
       label: "Enter your longitude",
@@ -40,11 +40,10 @@ export default function Register() {
       id: 3,
       name: "floor",
       type: "text",
-      required: true,
+      required: false,
+      value: "0",
       autocomplete: "off",
-      // pattern: "^[A-Za-z0-9]{3,50}$",
-      errorMessage: "Please enter your floor",
-      placeholder: "69",
+      placeholder: "0",
       label: "Enter your floor",
     },
   ];
@@ -54,9 +53,8 @@ export default function Register() {
     const data = new FormData(e.target);
     const payload = JSON.stringify(Object.fromEntries(data.entries()));
     const myObj = JSON.parse(payload);
-    console.log(myObj);
     axios
-      .post("http://localhost:1339/api/user/signup/", {
+      .post("http://localhost:1339/api/generate/bhumicode", {
         lat: myObj.lat,
         long: myObj.long,
         floor: myObj.floor,
@@ -72,7 +70,6 @@ export default function Register() {
           draggable: true,
           progress: undefined,
         });
-        // useNavigate('/dashboard');
       })
       .catch((err) => {
         var msg = "";

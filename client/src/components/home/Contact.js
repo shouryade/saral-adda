@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col, Carousel } from "react-bootstrap";
-import ContactHandler from "./ContactHandler";
+
 import { FaGithub, FaDiscord, FaInstagram } from "react-icons/fa";
 
 const Contact = () => {
