@@ -13,6 +13,8 @@ export default function Login() {
   const [mapCoords, setMapCoords] = useState({
     lat: 0,
     long: 0,
+    floor: 0,
+    b: 0,
   });
   const [lgShow, setLgShow] = useState(false);
   const [values, setValues] = useState({
@@ -33,60 +35,65 @@ export default function Login() {
     },
   ];
 
-  useEffect(() => {
-    if (lgShow) {
-      const fetchData = async () => {
-        try {
-          const data = new FormData(document.getElementById("my-form"));
-          const payload = JSON.stringify(Object.fromEntries(data.entries()));
-          const myObj = JSON.parse(payload);
-
-          const result = await axios.post(
-            "http://localhost:1339/api/generate/location",
-            { bhumicode: myObj.bhumicode }
-          );
-
-          var res = result.data.res;
-          console.log(res);
-          setMapValue(true);
-          setMapCoords({
-            lat: Number(res[0]),
-            long: Number(res[1]),
-          });
-        } catch (err) {
-          var msg = "";
-          if (typeof err.response == "undefined") {
-            msg = "Server error, please try again!";
-          } else {
-            msg = err.response.data.detail;
-          }
-          toast.error(msg, {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-        }
-      };
-      fetchData();
-    }
-  }, [lgShow]);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     setLgShow(true);
+
+    const data = new FormData(e.target);
+    const payload = JSON.stringify(Object.fromEntries(data.entries()));
+    const myObj = JSON.parse(payload);
+
+    axios
+      .post("http://localhost:1339/api/generate/location", {
+        bhumicode: myObj.bhumicode,
+      })
+      .then((result) => {
+        var res = result.data.res;
+        setMapValue(true);
+        setMapCoords({
+          lat: Number(res[0]),
+          long: Number(res[1]),
+          floor: Number(res[2]),
+          b: myObj.bhumicode,
+        });
+      })
+      .catch((err) => {
+        var msg = "";
+        if (typeof err.response == "undefined") {
+          msg = "Server error, please try again!";
+        } else {
+          msg = err.response.data.detail;
+        }
+        toast.error(msg, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      });
   };
 
   const onChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
+  useEffect(() => {
+    if (mapValue) {
+      setLgShow(true);
+    }
+  }, [mapValue]);
+
   return (
     <>
-      <Container fluid className="sponsor-section" id="about">
+      <Container
+        fluid
+        className="sponsor
+-section"
+        id="about"
+      >
         <Container>
           <h1
             style={{
@@ -118,7 +125,7 @@ export default function Login() {
                   {`
     .btn-outline-light:hover{
       color: white;}
-      .btn-outline-light:active{
+      .btn-outline-light:active
         color:green;
       }    
     `}
@@ -149,7 +156,15 @@ export default function Login() {
               >
                 <Modal.Header closeButton>
                   <Modal.Title id="example-modal-sizes-title-lg">
-                    Bhumi Code to Location
+                    <p>
+                      Latitude : <b className="purple">{mapCoords.lat}</b>
+                    </p>
+                    <p>
+                      Longitude : <b className="purple">{mapCoords.long}</b>
+                    </p>
+                    <p>
+                      Floor Number: <b className="purple">{mapCoords.floor}</b>
+                    </p>
                   </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
@@ -161,6 +176,7 @@ export default function Login() {
                     <Marker
                       width={50}
                       anchor={[mapCoords.lat, mapCoords.long]}
+                      onClick={() => alert("The Bhumi Code was " + mapCoords.b)}
                     />
                     <ZoomControl />
                   </Map>
