@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 
 from geocodehashing import written_format, decoder
 
-
+# uvicorn.run("main:app", reload=True, host="127.0.0.1", port=1339)
 load_dotenv()
 app = FastAPI()
 
@@ -71,7 +71,3 @@ async def createLocation(request: Bhumicode):
     input_word = request.bhumicode
     obj = decoder(input_word)
     return {"res": obj}
-
-
-if __name__ == "__main__":
-    uvicorn.run("main:app", reload=True, host="127.0.0.1", port=1339)
