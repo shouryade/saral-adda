@@ -17,26 +17,13 @@ export default function Login() {
   const inputs = [
     {
       id: 1,
-      name: "username",
+      name: "bhumicode",
       type: "text",
       required: true,
       autocomplete: "off",
-      pattern: "^[A-Za-z0-9]{3,16}$",
-      errorMessage:
-        "Username should be 3-16 characters and shouldn't include any special character!",
-      placeholder: "username",
-      label: "Enter Username",
-    },
-    {
-      id: 2,
-      name: "password",
-      type: "password",
-      autocomplete: "off",
-      required: true,
-      errorMessage:
-        "Password should be atleast 6-16 characters and must include atleast 1 letter, 1 number and 1 special character ",
-      placeholder: "Password",
-      label: "Enter password",
+      errorMessage: "Enter your Bhumi Code. Don't leave it empty!",
+      placeholder: "PB $ H67C JXF9 $ X25",
+      label: "Enter Bhumi Code",
     },
   ];
   const handleSubmit = (e) => {
@@ -45,23 +32,32 @@ export default function Login() {
     const data = new FormData(e.target);
     const payload = JSON.stringify(Object.fromEntries(data.entries()));
     const myObj = JSON.parse(payload);
+
     axios
-      .post("http://localhost:1339/api/user/signin/", {
-        username: myObj.username,
-        password: myObj.password,
+      .post("http://localhost:1339/api/generate/location", {
+        bhumicode: myObj.bhumicode,
       })
       .then((result) => {
-        toast.success(" Successful Login!", {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-        localStorage.setItem("jwt", result.data.access_token);
-        navigate("/dashboard");
+        var res = result.data.res;
+        console.log(res);
+
+        toast.success(
+          "Latitude -> " +
+            res[0] +
+            " Longitude -> " +
+            res[1] +
+            " The Building Floor is -> " +
+            res[2],
+          {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          }
+        );
       })
       .catch((err) => {
         var msg = "";
@@ -99,7 +95,7 @@ export default function Login() {
               paddingTop: "7rem",
             }}
           >
-            <span className="purple"> LOGIN </span>
+            <span className="purple"> BhumiCode to Location </span>
           </h1>
           <Row>
             <div className="form-gallery">

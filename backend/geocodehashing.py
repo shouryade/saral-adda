@@ -156,7 +156,7 @@ rto_codes = {
     "WB": "West Bengal",
 }
 rto_codes_reversed = {value: key for key, value in rto_codes.items()}
-# import geocoder
+import geocoder
 
 
 def written_format(

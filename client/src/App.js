@@ -19,7 +19,6 @@ import "./style.css";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "./components/auth/Login";
-import Profile from "./components/Profile";
 
 function App() {
   const [load, upadateLoad] = useState(true);
@@ -45,6 +44,7 @@ function App() {
           <Route path="/" element={<Home />} />
 
           <Route path="/generate" element={<Register />} />
+          <Route path="/login" element={<Login />} />
 
           {/* <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} /> */}

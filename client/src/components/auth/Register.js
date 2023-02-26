@@ -13,6 +13,43 @@ export default function Register() {
     password: "",
   });
 
+  const codes = {
+    AP: "Andhra Pradesh",
+    AR: "Arunachal Pradesh",
+    AS: "Assam",
+    BR: "Bihar",
+    CG: "Chhattisgarh",
+    CH: "Chandigarh",
+    DD: "Daman and Diu",
+    DL: "Delhi",
+    GA: "Goa",
+    GJ: "Gujarat",
+    HR: "Haryana",
+    HP: "Himachal Pradesh",
+    JH: "Jharkhand",
+    JK: "Jammu and Kashmir",
+    KA: "Karnataka",
+    KL: "Kerala",
+    LD: "Lakshadweep",
+    MH: "Maharashtra",
+    ML: "Meghalaya",
+    MN: "Manipur",
+    MP: "Madhya Pradesh",
+    MZ: "Mizoram",
+    NL: "Nagaland",
+    OD: "Odisha",
+    PB: "Punjab",
+    PY: "Puducherry",
+    RJ: "Rajasthan",
+    SK: "Sikkim",
+    TN: "Tamil Nadu",
+    TR: "Tripura",
+    TS: "Telangana",
+    UK: "Uttarakhand",
+    UP: "Uttar Pradesh",
+    WB: "West Bengal",
+  };
+  const array = Object.values(codes);
   const inputs = [
     {
       id: 1,
@@ -61,9 +98,10 @@ export default function Register() {
       })
       .then((result) => {
         var res = result.data.res;
-        toast.success(res, {
+        navigator.clipboard.writeText(res);
+        toast.success(res + " copied to clipboard", {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 8000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
