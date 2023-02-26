@@ -818,16 +818,27 @@ body {
   justify-content: space-evenly;
 }
 
-.contact-container .d-block-w100 {
-
-  width: 20%;
+.contact-container .carousel-inner:active .canvas-d>img {
+  width: 500px;
+  height: 500px;
+  z-index: 100;
 }
 
-.contact-container .stake {
+.contact-container .carousel-inner:active .canvas-d>img {
+  width: 500px;
+  height: 500px;
+  z-index: 100;
+}
+
+
+
+.contact-container p,
+.contact-container h3 {
   font-size: 0;
 }
 
-.contact-container:hover .stake {
+.contact-container:hover p,
+.contact-container:hover h3 {
   font-size: 1.3rem;
   font-weight: 600;
   padding: 1rem;

@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col, Carousel } from "react-bootstrap";
-
+import ContactHandler from "./ContactHandler";
 import { FaGithub, FaDiscord, FaInstagram } from "react-icons/fa";
 
 const Contact = () => {
@@ -21,13 +21,15 @@ const Contact = () => {
           <div className="contact-container">
             <Carousel>
               <Carousel.Item interval={1000}>
-                <img
-                  className="d-block w-100"
-                  src="https://images.unsplash.com/photo-1599408444232-8947844d94e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1070&q=80"
-                  width={69}
-                  height={500}
-                  alt="First slide"
-                />
+                <div className="canvas-d">
+                  <img
+                    className="d-block w-100"
+                    src="https://images.unsplash.com/photo-1599408444232-8947844d94e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1070&q=80"
+                    width={69}
+                    height={500}
+                    alt="First slide"
+                  />
+                </div>
                 <Carousel.Caption>
                   <div className="stake">
                     {" "}
@@ -41,13 +43,15 @@ const Contact = () => {
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item interval={1500}>
-                <img
-                  className="d-block w-100"
-                  src="https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                  width={69}
-                  height={500}
-                  alt="Second slide"
-                />
+                <div className="canvas-d">
+                  <img
+                    className="d-block w-100"
+                    src="https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                    width={69}
+                    height={500}
+                    alt="Second slide"
+                  />
+                </div>
                 <Carousel.Caption>
                   <div className="stake">
                     <h3>Businesses</h3>
@@ -64,14 +68,16 @@ const Contact = () => {
                   </div>
                 </Carousel.Caption>
               </Carousel.Item>
-              <Carousel.Item interval={1500}>
-                <img
-                  className="d-block w-100"
-                  src="https://images.unsplash.com/photo-1532375810709-75b1da00537c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80"
-                  width={69}
-                  height={500}
-                  alt="Third slide"
-                />
+              <Carousel.Item>
+                <div className="canvas-d">
+                  <img
+                    className="d-block w-100"
+                    src="https://images.unsplash.com/photo-1532375810709-75b1da00537c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80"
+                    width={69}
+                    height={500}
+                    alt="Third slide"
+                  />
+                </div>
                 <Carousel.Caption>
                   <div className="stake">
                     <h3>Government</h3>

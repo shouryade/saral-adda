@@ -11,16 +11,12 @@ import uvicorn
 import os
 from dotenv import load_dotenv
 from pymongo import MongoClient
+from geocodehashing import encoder
+
 
 load_dotenv()
 app = FastAPI()
 
-
-MONGODB_CONNECTION_URI = os.getenv("MONGODB_CONNECTION_URI")
-
-client = MongoClient(MONGODB_CONNECTION_URI)
-db = client["predico"]
-part_form = db["users"]
 
 origins = [
     "http://localhost:3000",
@@ -34,13 +30,17 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-from pymongo import MongoClient
-
 
 class User(BaseModel):
     username: str
     company: str
     password: str
+
+
+class Location(BaseModel):
+    lat: str
+    long: str
+    floor: str
 
 
 class Login(BaseModel):
@@ -63,17 +63,30 @@ async def read_root():
     return {"data": "Hello OWrld"}
 
 
+restricted = []
+
+
 @app.post("/api/user/signup")
-def create_user(request: User):
+def createBhumiCode(request: Location):
+    try:
+        lat = float(request.lat)
+        long = float(request.long)
 
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Please enter valid latitude and logitude values",
+        )
+
+
+@app.post("/api/user/signupzzzz")
+def create_user(request: Location):
     if bool((part_form.find_one({"username": request.username}))):
-
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="This user already exists!",
         )
     else:
-
         hashed_pass = Hash.bcrypt(request.password)
         request.password = hashed_pass
         _id = part_form.insert_one(request.dict())
@@ -85,18 +98,15 @@ def create_user(request: User):
 
 @app.post("/api/user/signin")
 def login(request: Login):
-
     user = part_form.find_one({"username": request.username})
     print(user)
     if not user:
-        
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail=f"No user found with the username {request.username} ",
         )
 
     if not Hash.verify(user["password"], request.password):
-
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND, detail=f"Wrong Username or password"
         )

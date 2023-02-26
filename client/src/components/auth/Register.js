@@ -16,35 +16,36 @@ export default function Register() {
   const inputs = [
     {
       id: 1,
-      name: "username",
+      name: "lat",
       type: "text",
       required: true,
       autocomplete: "off",
-      pattern: "^[A-Za-z0-9]{3,50}$",
-      errorMessage: "Username should be 3-50 characters!",
-      placeholder: "Username",
-      label: "Enter your Username",
+      // pattern: "^[A-Za-z0-9]{3,50}$",
+      errorMessage: "Please enter your longitude",
+      placeholder: "30.562477",
+      label: "Enter your latitude",
     },
     {
       id: 2,
-      name: "companyname",
+      name: "long",
       type: "text",
-      autocomplete: "off",
       required: true,
-      errorMessage: "Company name is compulsory!",
-      placeholder: "Company Name",
-      label: "Enter Company Name",
+      autocomplete: "off",
+      // pattern: "^[A-Za-z0-9]{3,50}$",
+      errorMessage: "Please enter your longitude",
+      placeholder: "76.896965",
+      label: "Enter your longitude",
     },
     {
       id: 3,
-      name: "password",
-      type: "password",
+      name: "floor",
+      type: "text",
       required: true,
       autocomplete: "off",
-      errorMessage:
-        "Password should be atleast 6-16 characters and must include atleast 1 letter, 1 number and 1 special character ",
-      placeholder: "Password",
-      label: "Enter password",
+      // pattern: "^[A-Za-z0-9]{3,50}$",
+      errorMessage: "Please enter your floor",
+      placeholder: "69",
+      label: "Enter your floor",
     },
   ];
   const handleSubmit = (e) => {
@@ -53,15 +54,16 @@ export default function Register() {
     const data = new FormData(e.target);
     const payload = JSON.stringify(Object.fromEntries(data.entries()));
     const myObj = JSON.parse(payload);
-
+    console.log(myObj);
     axios
       .post("http://localhost:1339/api/user/signup/", {
-        username: myObj.username,
-        company: myObj.companyname,
-        password: myObj.password,
+        lat: myObj.lat,
+        long: myObj.long,
+        floor: myObj.floor,
       })
       .then((result) => {
-        toast.success(" Successful registration!", {
+        var res = result.data.res;
+        toast.success(res, {
           position: "top-center",
           autoClose: 5000,
           hideProgressBar: false,
@@ -108,7 +110,7 @@ export default function Register() {
               paddingTop: "7rem",
             }}
           >
-            <span className="purple"> REGISTER </span>
+            <span className="purple"> GENERATE YOUR BHUMI CODE </span>
           </h1>
           <Row>
             <div className="form-gallery">
@@ -149,7 +151,7 @@ export default function Register() {
                     align: "center",
                   }}
                 >
-                  Register !
+                  Generate !
                 </Button>{" "}
               </form>
             </div>
