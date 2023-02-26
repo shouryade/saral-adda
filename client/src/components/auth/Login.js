@@ -156,6 +156,7 @@ export default function Login() {
               >
                 <Modal.Header closeButton>
                   <Modal.Title id="example-modal-sizes-title-lg">
+                    <b>Bhumi Code to Location</b>
                     <p>
                       Latitude : <b className="purple">{mapCoords.lat}</b>
                     </p>

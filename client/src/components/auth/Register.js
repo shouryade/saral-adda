@@ -1,55 +1,20 @@
-import React, { useState } from "react";
-import { Button, Container, Row } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Button, Container, Row, Modal } from "react-bootstrap";
 import "./login.css";
-import FormInput from "./FormInput";
-import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import FormInput from "./FormInput";
 
+import axios from "axios";
 export default function Register() {
   const [values, setValues] = useState({
-    username: "",
-    companyname: "",
-    password: "",
+    lat: "",
+    long: "",
+    floor: "",
   });
 
-  const codes = {
-    AP: "Andhra Pradesh",
-    AR: "Arunachal Pradesh",
-    AS: "Assam",
-    BR: "Bihar",
-    CG: "Chhattisgarh",
-    CH: "Chandigarh",
-    DD: "Daman and Diu",
-    DL: "Delhi",
-    GA: "Goa",
-    GJ: "Gujarat",
-    HR: "Haryana",
-    HP: "Himachal Pradesh",
-    JH: "Jharkhand",
-    JK: "Jammu and Kashmir",
-    KA: "Karnataka",
-    KL: "Kerala",
-    LD: "Lakshadweep",
-    MH: "Maharashtra",
-    ML: "Meghalaya",
-    MN: "Manipur",
-    MP: "Madhya Pradesh",
-    MZ: "Mizoram",
-    NL: "Nagaland",
-    OD: "Odisha",
-    PB: "Punjab",
-    PY: "Puducherry",
-    RJ: "Rajasthan",
-    SK: "Sikkim",
-    TN: "Tamil Nadu",
-    TR: "Tripura",
-    TS: "Telangana",
-    UK: "Uttarakhand",
-    UP: "Uttar Pradesh",
-    WB: "West Bengal",
-  };
-  const array = Object.values(codes);
+  const [locationEnabled, setLocationEnabled] = useState(false);
+  const [lgShow, setLgShow] = useState(false);
   const inputs = [
     {
       id: 1,
@@ -57,7 +22,6 @@ export default function Register() {
       type: "text",
       required: true,
       autocomplete: "off",
-
       errorMessage: "Please enter your longitude",
       placeholder: "30.562477",
       label: "Enter your latitude",
@@ -68,7 +32,6 @@ export default function Register() {
       type: "text",
       required: true,
       autocomplete: "off",
-
       errorMessage: "Please enter your longitude",
       placeholder: "76.896965",
       label: "Enter your longitude",
@@ -84,9 +47,75 @@ export default function Register() {
       label: "Enter your floor",
     },
   ];
+
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.permissions
+        .query({ name: "geolocation" })
+        .then(function (result) {
+          if (result.state === "granted") {
+            navigator.geolocation.getCurrentPosition(
+              (position) => {
+                setValues({
+                  ...values,
+                  lat: position.coords.latitude.toFixed(6),
+                  long: position.coords.longitude.toFixed(6),
+                });
+                setLocationEnabled(true);
+              },
+              (error) => {
+                console.log(error.message);
+              }
+            );
+          } else if (result.state === "prompt") {
+            navigator.geolocation.getCurrentPosition(
+              (position) => {
+                setValues({
+                  ...values,
+                  lat: position.coords.latitude.toFixed(6),
+                  long: position.coords.longitude.toFixed(6),
+                });
+                setLocationEnabled(true);
+              },
+              (error) => {
+                console.log(error.message);
+              }
+            );
+          } else {
+            toast.error(
+              "Geolocation permission is required to use this feature",
+              {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+              }
+            );
+          }
+        });
+    } else {
+      toast.error("Geolocation is not supported by this browser", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  };
+
+  useEffect(() => {
+    getLocation();
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    setLgShow(true);
     const data = new FormData(e.target);
     const payload = JSON.stringify(Object.fromEntries(data.entries()));
     const myObj = JSON.parse(payload);
@@ -101,7 +130,7 @@ export default function Register() {
         navigator.clipboard.writeText(res);
         toast.success(res + " copied to clipboard", {
           position: "top-center",
-          autoClose: 8000,
+          autoClose: false,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -149,6 +178,10 @@ export default function Register() {
           </h1>
           <Row>
             <div className="form-gallery">
+              <div
+                className="g-recaptcha"
+                data-sitekey="6Ld2Cf0fAAAAAGUlXmCKZBT8j6cG0Dk5kb7qzriZ"
+              ></div>
               <form onSubmit={handleSubmit} className="form-content">
                 {inputs.map((input) => (
                   <FormInput
@@ -167,10 +200,6 @@ export default function Register() {
       }    
     `}
                 </style>
-                <div
-                  className="g-recaptcha"
-                  data-sitekey="6Ld2Cf0fAAAAAGUlXmCKZBT8j6cG0Dk5kb7qzriZ"
-                ></div>
                 <Button
                   variant="outline-light"
                   type="submit"
