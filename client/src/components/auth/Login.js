@@ -29,7 +29,7 @@ export default function Login() {
       type: "text",
       required: true,
       autocomplete: "off",
-      errorMessage: "Enter your Bhumi Code. Don't leave it empty!",
+      errorMessage: "Enter your Bhoomi Code. Don't leave it empty!",
       placeholder: "PB $ H67C JXF9 $ X25",
       label: "Enter Bhumi Code",
     },
@@ -104,7 +104,7 @@ export default function Login() {
               paddingTop: "7rem",
             }}
           >
-            <span className="purple"> Bhumi Code to Location </span>
+            <span className="purple"> Bhoomi Code to Location </span>
           </h1>
           <Row>
             <div className="form-gallery">

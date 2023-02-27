@@ -174,7 +174,7 @@ export default function Register() {
               paddingTop: "7rem",
             }}
           >
-            <span className="purple"> GENERATE YOUR BHUMI CODE </span>
+            <span className="purple"> GENERATE YOUR BHOOMI CODE </span>
           </h1>
           <Row>
             <div className="form-gallery">

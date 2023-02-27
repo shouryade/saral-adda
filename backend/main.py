@@ -38,7 +38,7 @@ class Bhumicode(BaseModel):
     bhumicode: str
 
 
-restricted = []
+restricted = ["G68H"]
 
 
 @app.post("/api/generate/bhumicode")

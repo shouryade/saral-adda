@@ -69,7 +69,7 @@ def encoder(
         if (
             encoder[row1] + encoder[col1] + encoder[row2] + encoder[col2]
         ) in restrict_loc:
-            return False
+            return "0000 0000 $ 00"
         row3 = int(((lat % 2) % 0.1) * (200))
         col3 = int(((long % 2) % 0.1) * (200))
         row4 = int((((lat % 2) % 0.1) % 0.005) * (4000))
