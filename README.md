@@ -1,4 +1,4 @@
-###The problem Saral Adda solves
+### The problem Saral Adda solves
 
 Let’s admit the current addressing system is broken and it fails at many fronts such as,
 Fake Addresses
@@ -25,7 +25,7 @@ Scalability: Bhoomi code can be scaled up or down easily, making it adaptable to
 Sensitivity: Defense establishments, private listings and establishments are masked/avoided.
 Challenges we ran into
 
-###Security:
+### Security:
 To mitigate concerns of data breaches, it is
 pertinent that the technical architecture
 of the DAC provides strict control to users
