@@ -1,19 +1,39 @@
-<!-- ![Logo](client/src/Assets/predico.io.png)
+###The problem Saral Adda solves
 
-# Problem Statement
+Let’s admit the current addressing system is broken and it fails at many fronts such as,
+Fake Addresses
+Long Addresses
+A booming number of addresses
+Addresses are written in different languages
+Lack of uniform system
+Lack of precision
+This leads to failure in rapid response systems, logistics i.e., e-commerce and government services like Postal Services, census, water, and property tax.
 
-Changes in supply chains have been promoted through several measures, which include shortened product life cycles, rapidly changing and unpredictable consumer demands and the impulsive buying behaviour of consumers.
-Therefore, it is crucial for fashion apparel retailers to make efficient and quick decisions concerning inventory replenishment in advance based on the forecast of future demand patterns.
+It helps in providing:
+Precision: Bhoomi code can provide precise location information for an address, which can help in delivering goods and services accurately and efficiently. The current address systems rely on street names, house numbers, and postal codes, which can sometimes be imprecise or difficult to locate.
 
-<br>
+Speed: Bhoomi code can be quickly and easily shared and communicated, reducing the time and effort needed to locate an address. This can be particularly useful in emergency situations when time is critical.
 
-# <strong>predico.io</strong> by <strong>Team Moisture Bois</strong>
+Universal: Bhoomi code can be used in any country or region, regardless of the local address system. This can be particularly helpful in countries where the current address system is unreliable, inconsistent, or non-existent.
 
-Our initiative **predico.io** is a novel approach for building an intelligent demand forecasting system using advanced machine learning methods on historical product data & image data.
+Integration: Bhoomi code can be integrated into existing technologies and services, such as e-commerce platforms, navigation systems, and emergency services, to provide a seamless user experience.
 
-## Contributions
+Cost-Effective: Bhoomi code can be more cost-effective than the current address system, particularly in developing countries where the cost of implementing and maintaining a traditional address system can be prohibitively expensive.
 
-CNN models and training done by team leader <u>[Sajeev Yadav](https://github.com/MajorCode869)</u>.
-CNN models and training done by team member <u>[Rochak Ranjan](https://github.com/PyroSama07)</u>.
-Frontend and UI developed by team member <u>[Prakhar Dhama](https://github.com/prakhar-161)</u>.
-Backend and ML model deployment done by team member <u>[Shourya De](https://github.com/shouryade/)</u>. -->
+Scalability: Bhoomi code can be scaled up or down easily, making it adaptable to changing population patterns, urbanization, and technological advances.
+
+Sensitivity: Defense establishments, private listings and establishments are masked/avoided.
+Challenges we ran into
+
+###Security:
+To mitigate concerns of data breaches, it is
+pertinent that the technical architecture
+of the DAC provides strict control to users
+over their data.
+Sensitive Areas:
+Details about military/sensitive establishments
+such as: ammunition bases, missile depots,
+military barracks, or nuclear power plants,
+Private listings and premises
+should be masked and be available only to
+authorised personal.
